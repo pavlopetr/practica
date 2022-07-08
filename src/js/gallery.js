@@ -17,6 +17,13 @@ const onFormSubmit = e => {
   galleryApi.page = 1;
   galleryApi.fetchImages().then(data => {
     listEl.innerHTML = createGalleryList(data.hits);
+    galleryApi.setTotalPages(data.total)
+    if (galleryApi.totalPages === galleryApi.page){
+      paginatorEl.querySelector('[data-action="next"]').disabled = true;
+    }else{
+      paginatorEl.querySelector('[data-action="next"]').disabled = false;
+    }
+    console.log(galleryApi)
     // moreBtnEl.classList.remove(`is-hidden`);
   });
 };
@@ -39,12 +46,18 @@ switch (event.target.dataset.action) {
     if( galleryApi.page ===2){
       event.currentTarget.querySelector('[data-action="prev"]').disabled = false;
     }
+    if (galleryApi.page === galleryApi.totalPages){
+      event.target.disabled = true;
+    }
     break;
     case "prev":
     galleryApi.page -=1;
     if (galleryApi.page ===1){
       event.target.disabled = true;
-    } 
+    }
+    if (galleryApi.page === galleryApi.totalPages - 1){
+      event.currentTarget.querySelector('[data-action="next"]').disabled = false;
+    }
     break;
     default: break;
 };

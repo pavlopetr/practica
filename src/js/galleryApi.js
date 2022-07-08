@@ -10,13 +10,14 @@ export class GalleryApi {
   constructor() {
     this.page = 1;
     this.searchQry = null;
+    this.totalPages = null;
   }
   fetchImages() {
     return (
       fetch(
         `${this.#BASE_URL}?q=${this.searchQry}&page=${
           this.page
-        }&per_page=12&key=${this.#API_KEY}`
+        }&per_page=3&key=${this.#API_KEY}`
       )
         .then(response => {
           if (!response.ok) {
@@ -31,5 +32,8 @@ export class GalleryApi {
           console.log(err);
         })
     );
+  }
+  setTotalPages(total) {
+    this.totalPages = Math.ceil(total / 3);
   }
 }
