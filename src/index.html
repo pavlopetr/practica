@@ -9,6 +9,24 @@
   </head>
   <body>
     <!-- ❗️❗️❗️ Add partials like so for every page -->
-    <include src="./partials/example.html"></include>
+    <!-- <include src="./partials/example.html"></include> -->
+    <form class="search-form js-search-form">
+      <input type="text" name="search" />
+      <button type="submit">Search</button>
+    </form>
+    <ul class="gallery"></ul>
+    <!-- <button type="button" class="js-load-more is-hidden">Load More</button> -->
+    <div class="js-paginator">
+      <button type="button" data-action="prev" disabled>Prev</button>
+      <button type="button" data-action="next">Next</button>
+    </div>
+    <!-- <li class="gallery__item">
+      <img
+      src="https://pixabay.com/get/g48cff337b37e955abdebd593473941cb51bdec478b577b769065d34f40fc78a5a58cdd20de63d0e9098b81904c9dfb4e_640.jpg"
+      alt="" class="gallery__img" />
+    </li> -->
+    
   </body>
-</html>
+  </html>
+  
+    

@@ -1,2 +1,46 @@
 @import './common';
 @import './example';
+
+img {
+  display: block;
+  width: 100%;
+}
+
+.search-form {
+  display: flex;
+  /* width: 200px; */
+  max-width: 0;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.search-form input {
+  margin-right: 10px;
+  width: 200px;
+  padding: 5px 10px;
+  font-size: 18px;
+}
+
+.gallery {
+  list-style: none;
+  width: 800px;
+  margin: 0 auto;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: repeat(3, 250px);
+  grid-gap: 15px;
+}
+
+.gallery__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  background-color: #87cefa25;
+  border: 1px solid#87cefa;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.is-hidden {
+  display: none;
+}
